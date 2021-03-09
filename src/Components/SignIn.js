@@ -19,6 +19,10 @@ class SignIn extends Component {
         return flag;
     }
 
+    resetPassword = () => {
+        this.props.changeForgetState(true);
+    }
+
     handleLogin = (event) => {
 
         event.preventDefault();
@@ -28,6 +32,7 @@ class SignIn extends Component {
 
         if(this.validateUser(email, pwd)) {
             alert('Login successful!');
+            this.props.changeLoginState(true);
         }
         else {
             alert('Invalid email or password!');
@@ -45,7 +50,7 @@ class SignIn extends Component {
                     <input type="password" name="pwd" id="password" placeholder="e.g., **********" className="form-input" required/>
                     <button type="submit" className="form-btn">Login</button>
                     <div>
-                        <button type="button" className="forget-password">forget Password?</button>
+                        <button type="button" className="forget-password" onClick={this.resetPassword}>forget Password?</button>
                         <button type="button" className="sign-btn" onClick={this.signUp}>Sign Up</button>
                     </div>    
                 </form>
