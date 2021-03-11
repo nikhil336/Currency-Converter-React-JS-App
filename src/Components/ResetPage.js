@@ -70,7 +70,8 @@ class ResetPage extends Component {
 
         users = this.updatePassword(users, email, npwd);
         localStorage.setItem('users',JSON.stringify(users));
-
+        alert('Password reset successful!');
+        this.props.changeSignState(true);
     }
 
     render() {
@@ -89,9 +90,9 @@ class ResetPage extends Component {
                     <label htmlFor="answer" className="label-text">Answer:</label>
                     <input type="text" id="answer" name="ans" placeholder="e.g., abc" className="form-input" required/>
                     <label htmlFor="newpassword" className="label-text">New password:</label>
-                    <input type="password" name="npwd" id="password" placeholder="e.g., **********" className="form-input" required/>
+                    <input type="password" name="npwd" id="npassword" placeholder="e.g., **********" className="form-input" required/>
                     <label htmlFor="repassword" className="label-text">Re-enter password:</label>
-                    <input type="password" name="rpwd" id="password" placeholder="e.g., **********" className="form-input" required/>
+                    <input type="password" name="rpwd" id="rpassword" placeholder="e.g., **********" className="form-input" required/>
                     <button type="submit" className="form-btn">Submit</button>
                     <button type="button" className="login-btn" onClick={this.signIn}>Login</button>  
                 </form>

@@ -26,12 +26,10 @@ class SignIn extends Component {
     handleLogin = (event) => {
 
         event.preventDefault();
-        console.log(event.target.email.value);
         let email = event.target.email.value;
         let pwd = event.target.pwd.value;
 
         if(this.validateUser(email, pwd)) {
-            alert('Login successful!');
             this.props.changeLoginState(true);
         }
         else {

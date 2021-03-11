@@ -12,7 +12,7 @@ class HomePage extends Component {
         this.state = {
             signinFlag : true,
             loginFlag : false,
-            forgetFlag : false
+            forgetFlag : false,
         };
     }
 
@@ -49,7 +49,7 @@ class HomePage extends Component {
                         :
                         <ResetPage changeSignState={this.setSignState}/>
                     :
-                    <ConvertorPage changeSignState={this.setSignState}/>
+                    <ConvertorPage changeSignState={this.setSignState} data={this.state.authors}/>
                 }
             </div>
         );
