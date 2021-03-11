@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './HomePage.css';
 import './ConvertorPage.css';
 
 class ConvertorPage extends Component {
@@ -81,16 +80,16 @@ class ConvertorPage extends Component {
         return (
             <div className="convertor">
                 <div className="navbar">
-                    <button type="button" className="logout-btn" onClick={this.logOut}>Log out</button>
+                    <button type="button" className="div-btn" onClick={this.logOut}>Log out</button>
                 </div>
                 <div className="convertor-box">
                     <div className="disc">
                         <p className="curr-text">{this.state.srctext}</p>
-                        <p className="curr-text">{this.state.tartext}</p>
+                        <p className="curr-text" id="resulttxt">{this.state.tartext}</p>
                     </div>    
                     <div className="currency">
                         <div className="selection">
-                            <input id="target" type="number" className="num-btn" value={this.state.src} name="targetvalue" onChange={this.changeTargetValue}/>
+                            <input id="src" type="number" className="form-input" value={this.state.src} name="targetvalue" onChange={this.changeTargetValue}/>
                             <select name="target" id="target-value" className="slt" onChange={this.calculate}>
                                 <option value="inr">Indian Rupee (INR)</option>
                                 <option value="usd">United States Dollar (USD)</option>
@@ -128,7 +127,7 @@ class ConvertorPage extends Component {
                             </select>
                         </div>
                         <div className="selection">
-                            <input id="result" type="number" className="num-btn" value={this.state.target} name="resultvalue" onChange={this.changeResultValue}/>
+                            <input id="result" type="number" className="form-input" value={this.state.target} name="resultvalue" onChange={this.changeResultValue}/>
                             <select name="result" id="result-value" className="slt" onChange={this.setResult}>
                                 <option value="usd">United States Dollar (USD)</option>
                                 <option value="jpy">Japanese Yen (JPY)</option>

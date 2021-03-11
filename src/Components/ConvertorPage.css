@@ -6,6 +6,14 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    padding: 10px;
+}
+
+.logout-btn {
+    border: 1px solid grey;
+    padding: 5px 10px;
+    font-family: verdana;
+    font-size: 14px;
 }
 
 .convertor-box {
@@ -13,20 +21,21 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    padding-top: 5%
 }
 
 .disc {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 50%;
+    width: 40%;
 }
 
 .currency {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 50%;
+    width: 40%;
 }
 
 .selection {
@@ -36,6 +45,18 @@
     width: 100%;
 }
 
-.slt {
-    width: 40%;
+.curr-text {
+    padding: 5px;
+    font-size: 20px;
+    margin: 2px 2px 2px 5px;
+}
+
+#resulttxt {
+    font-size: 26px;
+    font-weight: 540;
+    margin-bottom: 5px;
+}
+
+#src, #result {
+    width: 60%;
 }

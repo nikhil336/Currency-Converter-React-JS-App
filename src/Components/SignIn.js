@@ -48,8 +48,8 @@ class SignIn extends Component {
                     <input type="password" name="pwd" id="password" placeholder="e.g., **********" className="form-input" required/>
                     <button type="submit" className="form-btn">Login</button>
                     <div>
-                        <button type="button" className="forget-password" onClick={this.resetPassword}>forget Password?</button>
-                        <button type="button" className="sign-btn" onClick={this.signUp}>Sign Up</button>
+                        <button type="button" className="div-btn" onClick={this.resetPassword}>forget Password?</button>
+                        <button type="button" className="div-btn" onClick={this.signUp}>Sign Up</button>
                     </div>    
                 </form>
             </div>

@@ -30,7 +30,7 @@ class HomePage extends Component {
 
     render() {
         return (
-            <div className="main">
+            <div className={!this.state.forgetFlag?"main":"main-reset"}>
                 <div className="header">
                     <h1 className="heading">Currency Convertor</h1>
                 </div>
@@ -38,7 +38,7 @@ class HomePage extends Component {
                     !this.state.forgetFlag?
                         <div className="container">
                             <div className="para">
-                                <p>some text</p>
+                                <p></p>
                             </div>
                             { this.state.signinFlag?
                                 <SignIn changeSignState={this.setSignState} changeLoginState={this.setLoginState} changeForgetState={this.setForgetState}/>

@@ -128,7 +128,7 @@ class SignUp extends Component {
                     <input type="password" name="repwd" id="repassword" placeholder="e.g., **********" className="form-input" required/>
 
                     <label htmlFor="security" className="label-text">Security Question:</label>
-                    <select name="ques" id="ques">
+                    <select name="ques" id="ques" className="slt">
                         <option value="pet">What is the name of your pet?</option>
                         <option value="teacher">What is the name of your favourite teacher?</option>
                         <option value="sport">Which sport do you like?</option>
@@ -137,7 +137,9 @@ class SignUp extends Component {
                     <input type="text" id="answer" name="ans" placeholder="e.g., abc" className="form-input" required/>
 
                     <button type="submit" className="form-btn">Sign Up</button>
-                    <button type="button" className="sign-btn" onClick={this.signIn}>Login</button>
+                    <div>
+                        <button type="button" className="div-btn" onClick={this.signIn}>Login</button>
+                    </div>
                 </form>
             </div>
         );
