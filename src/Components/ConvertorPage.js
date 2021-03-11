@@ -10,42 +10,44 @@ class ConvertorPage extends Component {
             src : 1,
             target : 0.014,
             srclist : "INR",
-            resultlist : "USD"
+            resultlist : "USD",
+            srctext : "1 Indian Rupee equals",
+            tartext : "0.014 United States Dollar"
         };
         this.rates = {
-            "USD" : 1.1894, 
-            "JPY" : 129.50, 
-            "BGN" : 1.9558, 
-            "CZK" : 26.288,
-            "DKK" : 7.4366,
-            "GBP" : 0.85704,
-            "HUF" : 366.83,
-            "PLN" : 4.5843,
-            "RON" : 4.8870,
-            "SEK" : 10.1360,
-            "CHF" : 1.1071,
-            "ISK" : 151.75,
-            "NOK" : 10.0838,
-            "HRK" : 7.5913,
-            "RUB" : 87.9711,
-            "TRY" : 9.1023,
-            "AUD" : 1.5440,
-            "BRL" : 6.9553,
-            "CAD" : 1.4990,
-            "CNY" : 7.7478,
-            "HKD" : 9.2325,
-            "IDR" : 17140.98,
-            "ILS" : 3.9602,
-            "INR" : 86.8270,
-            "KRW" : 1353.91,
-            "MXN" : 25.3635,
-            "MYR" : 4.8974,
-            "NZD" : 1.6607,
-            "PHP" : 57.724,
-            "SGD" : 1.6011,
-            "THB" : 36.597,
-            "ZAR" : 18.3128,
-            "EURO" : 1
+            "USD" : [1.1894, "United States Dollar"], 
+            "JPY" : [129.50, "Japanese Yen"], 
+            "BGN" : [1.9558, "Bulgarian Lev"], 
+            "CZK" : [26.288, "Czech Koruna"],
+            "DKK" : [7.4366, "Danish Krone"],
+            "GBP" : [0.85704, "Pound sterling"],
+            "HUF" : [366.83, "Hungarian Forint"],
+            "PLN" : [4.5843, "Poland złoty"],
+            "RON" : [4.8870, "Romanian Leu"],
+            "SEK" : [10.1360, "Swedish Krona"],
+            "CHF" : [1.1071, "Swiss Franc"],
+            "ISK" : [151.75, "Icelandic Króna"],
+            "NOK" : [10.0838, "Norwegian Krone"],
+            "HRK" : [7.5913, "Croatian Kuna"],
+            "RUB" : [87.9711, "Russian Ruble"],
+            "TRY" : [9.1023, "Turkish lira"],
+            "AUD" : [1.5440, "Australian Dollar"],
+            "BRL" : [6.9553, "Brazilian Real"],
+            "CAD" : [1.4990, "Canadian Dollar"],
+            "CNY" : [7.7478, "Chinese Yuan"],
+            "HKD" : [9.2325, "Hong Kong Dollar"],
+            "IDR" : [17140.98, "Indonesian Rupiah"],
+            "ILS" : [3.9602, "Israeli New Shekel"],
+            "INR" : [86.8270, "Indian Rupee"],
+            "KRW" : [1353.91, "South Korean won"],
+            "MXN" : [25.3635, "Mexican Peso"],
+            "MYR" : [4.8974, "Malaysian Ringgit"],
+            "NZD" : [1.6607, "New Zealand Dollar"],
+            "PHP" : [57.724, "Philippine peso"],
+            "SGD" : [1.6011, "Singapore Dollar"],
+            "THB" : [36.597, "Thai Baht"],
+            "ZAR" : [18.3128, "South African Rand"],
+            "EUR" : [1, "Euro"]
         };
     }
 
@@ -55,23 +57,24 @@ class ConvertorPage extends Component {
 
     calculate = (event) => {
         let srcValue = (event.target.value).toUpperCase();
-        let ans = (this.state.src * this.rates[this.state.resultlist])/this.rates[srcValue];
-        this.setState( {target : ans, srclist : srcValue} );
+        let ans = (this.state.src * this.rates[this.state.resultlist][0])/this.rates[srcValue][0];
+        this.setState( {target : ans, srclist : srcValue, srctext : ("1 "+this.rates[srcValue][1]+" equals"), tartext : (""+(ans/this.state.src)+" "+this.rates[this.state.resultlist][1])} );
     }
 
     changeTargetValue = (event) => {
-        let ans = (event.target.value * this.rates[this.state.resultlist])/this.rates[this.state.srclist];
+        let ans = (event.target.value * this.rates[this.state.resultlist][0])/this.rates[this.state.srclist][0];
         this.setState({ src : event.target.value, target : ans });
     }
 
     changeResultValue = (event) => {
-        this.setState({ result : event.target.value });
+        let ans = (event.target.value * this.rates[this.state.srclist][0])/this.rates[this.state.resultlist][0];
+        this.setState({ target : event.target.value, src : ans });
     }
 
     setResult = (event) => {
         let targetValue = (event.target.value).toUpperCase();
-        let ans = (this.state.src * this.rates[targetValue])/this.rates[this.state.srclist];
-        this.setState({ resultlist : targetValue, target : ans });
+        let ans = (this.state.src * this.rates[targetValue][0])/this.rates[this.state.srclist][0];
+        this.setState({ resultlist : targetValue, target : ans , srctext : ("1 "+this.rates[this.state.srclist][1]+" equals"), tartext : (""+(ans/this.state.src)+" "+this.rates[targetValue][1]) });
     }
 
     render() {
@@ -82,8 +85,8 @@ class ConvertorPage extends Component {
                 </div>
                 <div className="convertor-box">
                     <div className="disc">
-                        <p className="curr-text">1 Indian Rupee equals</p>
-                        <p className="curr-text">0.014 United States Dollar</p>
+                        <p className="curr-text">{this.state.srctext}</p>
+                        <p className="curr-text">{this.state.tartext}</p>
                     </div>    
                     <div className="currency">
                         <div className="selection">
@@ -121,11 +124,11 @@ class ConvertorPage extends Component {
                                 <option value="sgd">Singapore Dollar (SGD)</option>
                                 <option value="thb">Thai Baht (THB)</option>
                                 <option value="zar">South African Rand (ZAR)</option>
-                                <option value="euro">Euro (EURO)</option>
+                                <option value="euro">Euro (EUR)</option>
                             </select>
                         </div>
                         <div className="selection">
-                            <input id="result" type="number" className="num-btn" value={this.state.target} name="resultvalue" onChange={this.changeResultValue} readOnly/>
+                            <input id="result" type="number" className="num-btn" value={this.state.target} name="resultvalue" onChange={this.changeResultValue}/>
                             <select name="result" id="result-value" className="slt" onChange={this.setResult}>
                                 <option value="usd">United States Dollar (USD)</option>
                                 <option value="jpy">Japanese Yen (JPY)</option>
@@ -159,7 +162,7 @@ class ConvertorPage extends Component {
                                 <option value="sgd">Singapore Dollar (SGD)</option>
                                 <option value="thb">Thai Baht (THB)</option>
                                 <option value="zar">South African Rand (ZAR)</option>
-                                <option value="euro">Euro (EURO)</option>
+                                <option value="euro">Euro (EUR)</option>
                             </select>
                         </div>
                     </div>
