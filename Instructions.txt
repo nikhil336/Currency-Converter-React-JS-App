@@ -1,0 +1,10 @@
+Important notice :- you must have node installed in your system to successfully run this project.
+
+Steps :-
+
+1. Run Setup.bat file. It may take some time to load files from the internet. 
+2. After that a window will open in your browser showing the login page. (Please don't use a new private tab because it may cause some problems with the local storage.)
+3. First click sign up to create a new user.
+4. Then login with that user to get started.
+
+Thank you....

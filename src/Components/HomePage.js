@@ -32,7 +32,7 @@ class HomePage extends Component {
         return (
             <div className={!this.state.forgetFlag?"main":"main-reset"}>
                 <div className="header">
-                    <h1 className="heading">Currency Convertor</h1>
+                    <h1 className="heading">Currency Converter</h1>
                 </div>
                 { !this.state.loginFlag?
                     !this.state.forgetFlag?

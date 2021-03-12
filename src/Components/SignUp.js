@@ -114,10 +114,8 @@ class SignUp extends Component {
                     <input type="text" name="fname" id="firstname" placeholder="e.g., Abc" className="form-input" required/>
                     <label htmlFor="lastname" className="label-text">Last Name:</label>
                     <input type="text" name="lname" id="lastname" placeholder="e.g., Def" className="form-input" required/>
-
                     <label htmlFor="dob" className="label-text">Date of birth:</label>
                     <input type="date" name="dob" id="dob" className="form-input" required/>
-
                     <label htmlFor="mno" className="label-text">Mobile No:</label>
                     <input type="text" name="mbno" id="number" placeholder="e.g., 9876543210" pattern="[7-9]{1}[0-9]{9}" className="form-input" required/>
                     <label htmlFor="username" className="label-text">Email:</label>
@@ -126,7 +124,6 @@ class SignUp extends Component {
                     <input type="password" name="pwd" id="password" placeholder="e.g., **********" className="form-input" required/>
                     <label htmlFor="repassword" className="label-text">Re-enter Password:</label>
                     <input type="password" name="repwd" id="repassword" placeholder="e.g., **********" className="form-input" required/>
-
                     <label htmlFor="security" className="label-text">Security Question:</label>
                     <select name="ques" id="ques" className="slt">
                         <option value="pet">What is the name of your pet?</option>
@@ -135,7 +132,6 @@ class SignUp extends Component {
                     </select>
                     <label htmlFor="answer" className="label-text">Answer:</label>
                     <input type="text" id="answer" name="ans" placeholder="e.g., abc" className="form-input" required/>
-
                     <button type="submit" className="form-btn">Sign Up</button>
                     <div>
                         <button type="button" className="div-btn" onClick={this.signIn}>Login</button>
